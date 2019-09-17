@@ -1,4 +1,9 @@
-import csv
+# Yevgeniy Gorbachev
+# SoftDev1 pd1
+# K<n> -- <Title><Topic/Summary>
+# 2019-09-16   
+
+import csv #awww yeah
 import random
 
 
@@ -16,7 +21,7 @@ def select_random(occupations):
         if selected < running_chance:
             return pair[0]
 
-def rand_occupation(trials):
+def rand_occupations(trials):
     actual_chance = {}
     for pair in lines:
         actual_chance[pair[0]]=0
