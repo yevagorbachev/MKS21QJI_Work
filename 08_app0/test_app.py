@@ -1,3 +1,8 @@
+# Yevgeniy Gorbachev
+# SoftDev1 pd1
+# K8 -- First Flask App
+# 2019-09-19   
+
 from flask import Flask
 app = Flask(__name__)
 
@@ -8,7 +13,7 @@ def index():
 
 @app.route('/page1')
 def page1():
-    return "This is the first page. You are trapped here."
+    return open("templates/basic.html",'r').read().format(content="This is the first page. You are trapped here.")
 
 @app.route('/page2')
 def page2():
