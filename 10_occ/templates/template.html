@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> {{title}} </title>
+    </head>
+    <body> 
+        Randomly selected job: {{selected}}
+        <br><br>
+        {% for key, value in occs.items() %}
+        {{key}} : {{value}} % 
+        <br>
+        {% endfor %}
+    </body>
+</html>
