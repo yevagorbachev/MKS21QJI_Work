@@ -3,7 +3,7 @@
 # K09 -- ’Tis Not a Race -- But You Will Go Faster
 # 2019-09-19   
 
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,7 +13,7 @@ def index():
 
 @app.route('/page1')
 def page1():
-    return open("templates/basic.html",'r').read().format(content="This is the first page. You are trapped here.")
+    return open("basic.html",'r').read().format(content="This is the first page. You are trapped here.")
 
 @app.route('/page2')
 def page2():
@@ -22,7 +22,7 @@ def page2():
 @app.route('/my_foist_template')
 def template():
     coll = [0,1,1,2,3,5,8]
-    return open("templates/foist.html",'r').read()
+    return render_template("foist.html",col=coll)
     
 if __name__ == "__main__":
     app.debug = True
