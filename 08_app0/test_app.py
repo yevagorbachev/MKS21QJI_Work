@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return open("static/index.html",'r').read()
+    return open("static/seed.html",'r').read().format(title='Template',body='Yay formatting')
 
 @app.route('/page1')
 def page1():
@@ -19,7 +19,11 @@ def page1():
 def page2():
     return "This is the second page. You are trapped here."
 
-
+@app.route('/my_foist_template')
+def template():
+    coll = [0,1,1,2,3,5,8]
+    return open("templates/foist.html",'r').read()
+    
 if __name__ == "__main__":
     app.debug = True
     app.run()
