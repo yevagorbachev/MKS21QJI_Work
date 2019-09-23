@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You get a job! You get a job! Everybody (almost) gets a job!</title>
+  </head>
+  <body>
+    Presented by Team Gorb: Eric Lam and Yevgeniy Gorbachev<br>
+    Welcome to Gorb's Job Giveaway! You are now entitled to claim you're employed in the following field: <b>{{randJob}}</b>.
+    <table>
+      <tr>
+        <th style="padding-right: 50px">Occupation</th>
+        <th>Chance</th>
+      </tr>
+      {% for item in data %}
+        <tr>
+          <td style="padding-right: 50px">{{item[0]}}</td>
+          <td>{{item[1]}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

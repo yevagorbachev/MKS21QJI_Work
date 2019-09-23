@@ -24,7 +24,8 @@ def weighted_random(weighted_dict):
     return "Unemployed"
 
 def gen_dict():
-    lines = [line for line in csv.reader(open("./utl/occupations.csv"))]
+    path = __file__[:__file__.rfind('/')]
+    lines = [line for line in csv.reader(open(path + "/utl/occupations.csv"))]
     lines = [(line[0],float(line[1])) for line in lines[1:-2]]
     return dict(lines)
 
