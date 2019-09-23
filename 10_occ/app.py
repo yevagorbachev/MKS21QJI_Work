@@ -7,8 +7,8 @@ from random import choices
 from flask import Flask, render_template
 import csv
 app = Flask(__name__)
-__ppath__ = __file__[:__file__.rfind('/')] # python file's parent directory
-
+__ppath__ = __file__[: __file__.rfind('/') if __file__.rfind('/') != -1 else __file__.rfind('\\')] # python file's parent directory, works irrespective of OS (directories are slashed vs backslashed)
+print(__ppath__)
 def weightedRandFromDict(dictionary):
     items = dictionary.items()
     keys = [item[0] for item in items]
