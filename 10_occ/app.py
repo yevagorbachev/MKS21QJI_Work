@@ -2,7 +2,7 @@
 #SoftDev1 pd1
 #K10 -- Jinja tuning
 #2019-09-22
-
+import re
 from random import choices
 from flask import Flask, render_template
 import csv
