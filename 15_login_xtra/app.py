@@ -21,13 +21,12 @@ def index():
 @app.route('/auth', methods = ["GET","POST"])
 def auth():
     creds = open(__ppath__ + "/data/creds.txt",'r').read().split('\n') # gets credentials from the file
-    logins = {"username":request.form["username"] == creds[0], "password":request.form["password"] == creds[1]}
-    if logins["username"] and logins["password"]: # if creds are good
+    if request.form["username"] == creds[0] and request.form["password"] == creds[1]: # if creds are good
         session["username"] = request.form["username"]
         session["password"] = request.form["password"]
         return render_template("welcome.html", name=request.form["username"])
     else:
-        return render_template("unwelcome.html", fails=[item[0] if (not item[1]) else None for item in logins.items()])
+        return render_template("unwelcome.html")
 
 @app.route('/logout')
 def deauth():

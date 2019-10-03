@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <h2>Login here:</h2>
     </head>
     <body>
-        There was an error logging in. Please try again.<br> 
-        <form action="/auth" method="POST">
-            <input type="text" name="username">
-            <input type="text" name="password">
-            <input type="submit" name="submit">
-        </form>
+        There was an error logging in.<br>
+        The following are incorrect
+        {% for failure in fails %}
+        {{failure}} <br>
+        {% endfor %}
     </body>
 </html>
