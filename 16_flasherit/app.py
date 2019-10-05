@@ -3,7 +3,7 @@
 #K16 -- Oh yes, perhaps I do...
 #2019-10-07
 
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ __creds__ = {
 @app.route('/', methods = ['GET','POST'])
 def index():
     if 'username' in session.keys():
-        return Flask.redirect(Flask.url_for(welcome))
+        return redirect(url_for('welcome'))
     else:
         return render_template('login.html', title = 'Login')
 
@@ -30,21 +30,32 @@ def welcome():
     return render_template('welcome.html', name = session['username'], title = 'Welcome!')
 
 @app.route('/error', methods = ['GET','POST'])
-def error(fails):
-    return render_template
+def error():
+    failstr = session['failstr']
+    del session['failstr']
+    return render_template('error.html', fails = failstr, title = 'error')
+
+
+
 
 
 @app.route('/auth', methods = ['POST'])
 def auth():
-    fails = [item[0] for item in __creds__.items() if not (item[1] == __creds__[item[0]])]
+    inputs = {
+        'username':request.form['username'],
+        'password':request.form['password']
+    }
+    fails = [item[0] for item in inputs.items() if item[1] != __creds__[item[0]]]
     if len(fails) == 0:
         session['username'] = request.form['username']
-        return Flask.redirect(Flask.url_for(index))
+        return redirect(url_for('index'))
     else:
         failstr = " and ".join(fails)
-        return Flask.redirect(Flask.url_for(error))
-
+        session['failstr'] = failstr
+        return redirect(url_for('error'))
 @app.route('/deauth', methods = ['GET', 'POST'])
 def deauth():
     del session['username']
-    return Flask.redirect(Flask.url_for(index))
+    return redirect(url_for('index'))
+
+app.run(debug = True)
