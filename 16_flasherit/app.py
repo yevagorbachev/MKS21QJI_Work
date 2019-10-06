@@ -53,6 +53,7 @@ def auth():
         failstr = " and ".join(fails)
         session['failstr'] = failstr
         return redirect(url_for('error'))
+        
 @app.route('/deauth', methods = ['GET', 'POST'])
 def deauth():
     del session['username']
