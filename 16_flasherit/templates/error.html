@@ -1,6 +1,12 @@
 {% extends "_base.html" %}
 {% block header %} <h2>Error</h2> {% endblock header %}
 {% block body %}
-There was an error logging in.<br>
+{% with messages = get_flashed_messages() %}
+    <ul class='flashes'></ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+{% endwith %}
 Incorrect {{fails}}
 {% endblock body %}

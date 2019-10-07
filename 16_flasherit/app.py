@@ -3,7 +3,7 @@
 #K16 -- Oh yes, perhaps I do...
 #2019-10-07
 
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, flash, render_template, request, session, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -13,8 +13,8 @@ __ppath__ = __file__[: parent(__file__)] # python file's parent directory
 
 app.secret_key = os.urandom(32)
 __creds__ = {
-    'username':'putin',
-    'password':'soviet_glory'
+    'username':'right_username',
+    'password':'right_password'
 }
 
 
@@ -52,6 +52,7 @@ def auth():
     else:
         failstr = " and ".join(fails)
         session['failstr'] = failstr
+        flash("There was an error logging in.")
         return redirect(url_for('error'))
         
 @app.route('/deauth', methods = ['POST'])
