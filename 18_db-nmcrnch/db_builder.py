@@ -1,4 +1,4 @@
-#2ndPreQL_Yevgeniy Gorbachev
+#PreQL_Yevgeniy Gorbachev
 #SoftDev pd1
 #K18 -- Average
 #2019-10-14
