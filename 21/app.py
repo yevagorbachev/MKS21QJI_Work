@@ -22,6 +22,10 @@ def get_page(page):
 def edit(page):
     return
 
+@app.route('/search', methods = ['POST'])
+def search():
+    return
+
 
 # login action
 @app.route('/auth', methods = ['POST'])
