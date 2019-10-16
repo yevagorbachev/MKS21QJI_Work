@@ -18,15 +18,25 @@ def index():
 def get_page(page):
     return
 
+# Using content from page entry, generates edit mode
 @app.route('/pages/<page>/edit', methods = ['POST'])
 def edit(page):
     return
 
+# search for pages
 @app.route('/search', methods = ['POST'])
 def search():
     return
 
+# create account
+# if GET, returns default registration page
+# if POST, updates user db
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+    return
 
+
+################ ACTION ROUTES ################
 # login action
 @app.route('/auth', methods = ['POST'])
 def auth():
@@ -42,9 +52,3 @@ def deauth():
 def commit():
     return
 
-# create account
-# if GET, returns default registration page
-# if POST, updates user db
-@app.route('/register', methods = ['GET', 'POST'])
-def register():
-    return
