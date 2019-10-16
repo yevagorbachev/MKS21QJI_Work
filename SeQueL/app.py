@@ -4,18 +4,19 @@
 # 2019-10-??
 
 from flask import Flask, request, render_template, session, url_for
-from utl import search
+import utl
+
 app = Flask(__name__)
 
 
 # Welcome/index page
-@app.route('/', methods = ['GET', 'POST'])
-@app.route('/welcome', methods = ['GET', 'POST']) 
+@app.route('/', methods = ['GET'])
+@app.route('/welcome', methods = ['GET']) 
 def index():
     return
 
 # Article from pages
-@app.route('/pages/<page>', methods = ['GET', 'POST'])
+@app.route('/pages/<page>', methods = ['GET'])
 def get_page(page):
     return
 
