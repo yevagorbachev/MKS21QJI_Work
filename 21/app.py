@@ -37,6 +37,8 @@ def register():
 
 
 ################ ACTION ROUTES ################
+# action routes perform an action, then redirect to some page
+
 # login action
 @app.route('/auth', methods = ['POST'])
 def auth():
