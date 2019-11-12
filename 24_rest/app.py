@@ -11,8 +11,8 @@ from os import urandom
 __key__ = '5Vrh42prZ7Y2kxrO0KAH6fQ0CqpN5tDujnmZk8sF'
 __url__ = f'https://api.nasa.gov/planetary/apod?api_key={__key__}'
 
-app.secret_key = urandom(32)
 app = Flask(__name__)
+app.secret_key = urandom(32)
 
 @app.route('/')
 def index():
