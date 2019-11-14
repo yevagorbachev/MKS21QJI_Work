@@ -27,14 +27,24 @@ app.secret_key = urandom(32)
 
 @app.route('/')
 def index():
-    query = 'tides in seattle'
+    # Wolfram's API
+    query = 'picasso'
     query_link = WOLFRAM.get_url(query)
-    print(query_link)
 
     request = urllib.request.urlopen(query_link)
     response = request.read()
-    data = json.loads(response)
-    return render_template('index.html',api_data=str([item for item in data['queryresult'].items()]))
+    data = json.loads(response)['queryresult']
+    img = data['pods'][0]['subpods'][0]['img']
+    print(img)
+    return render_template('img.html',img_title = img['title'], img_link = img['src'])
 
-# if __name__ == 'main':
+def get_wolfram(query=''):
+    query_link = WOLFRAM.get_url(query)
+    request = urllib.request.urlopen(query_link)
+    response = request.read()
+    data = json.loads(response)['queryresult']
+    img = data['pods'][0]['subpods'][0]['img']
+    return render_template('img.html',img_title = img['title'], img_link = img['src'])
+
+
 app.run(debug=True)
