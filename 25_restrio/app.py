@@ -1,7 +1,7 @@
 #Yevgeniy Gorbachev
 #SoftDev1 pd1
-#K24 -- A RESTful Journey Skyward
-#2019-11-13
+#K25 -- Getting More REST
+#2019-11-14
 
 from flask import *
 import urllib.request
