@@ -1,0 +1,7 @@
+{% extends "_base.html" %}
+{% block title %} {{img_title}} {% endblock title %}
+{% block head %} 
+    <h1>Image from API</h1>
+    <br><h4>{{img_title}}</h4> 
+{% endblock head %}
+{% block body %} <img src={{img_link}}> {% endblock body %}
