@@ -3,32 +3,26 @@
 //K27 -- Sequential Progression
 //12-11-2019
 
-var select_field = document.getElementById('function');
-var input_field = document.getElementById('arg');
-var button = document.getElementById('eval');
-var result_field = document.getElementById('result');
+const select_field = document.getElementById("select");
+const input_field = document.getElementById("input");
+const evaluation_trigger = document.getElementById("eval");
+const result_field = document.getElementById("result");
 
-button.onclick = setOutput
+evaluation_trigger.addEventListener("click", () => setOutput());
 
-var setOutput = function() {
-    console.log('evaluating');
-    fname = select_field.getAttribute(value);
-    console.log(fname);
-    argument = input_field.getAttribute(value);
-    console.log(argument)
-    result = selectFunc(fname, argument);
-    result_field.innerText = String(result);
+const setOutput = function() {
+    
 }
 
 var selectFunc = function(fname, argument) {
     switch (fname) {
-        case 'fact':
+        case "fact":
             return fact(argument);
-        case 'fib':
+        case "fib":
             return fib(argument);
-        case 'gcd':
+        case "gcd":
             return gcd(argument);
-        case 'selectRandom':
+        case "selectRandom":
             return selectRandom(argument);
     }
 }
@@ -49,16 +43,16 @@ var fib = function(n, prev = [0,1,1]) {
     return prev[n];
 }
 
-var gcd = function(a,b) {
+var gcd = function(a, b) {
     if (a % b == 0) {
         return b;
     }
     return gcd(b, a % b);
 }
 
-var selectRandom = function(array) {
+var selectRandom = function(array, delimiter = ",") {
     if ((typeof array) == String) {
-        array = array.split(",")
+        array = array.split(delimiter)
     }
     return array[Math.floor(Math.random()*array.length)];
 }
