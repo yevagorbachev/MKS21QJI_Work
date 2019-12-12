@@ -5,19 +5,20 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>JS work the first</title>
+		<title>JS work the first</title>
     </head>
     <body>
 		Function:<br>
-        <select>
+        <select id="function">
             <option value="fact" selected>Factorial</option>
             <option value="fib">Fibonacci</option>
-            <option value="selectRandom">Select random element</option>
             <option value="gcd">Greatest Common Denominator</option>
+            <option value="selectRandom">Select random element</option>
 		</select><br>
 		Input:<br>
-		<input id="arg" type="text" name="arg"><br>
-		<button id="eval" type="button">Evaluate</button>
+		<input id="arg" type="text" name="arg" placeholder=""><br>
+		<button id="eval" type="button">Evaluate</button><br>
+		<div id="result"></div>
         <script src="evaluations.js"></script>
     </body>
 </html>
